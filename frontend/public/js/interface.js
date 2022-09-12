@@ -13,9 +13,11 @@ let try_page = -1;
  * Onclick functions
  */
 async function connectOnClick() {
+    /*
+    // firebase read & write test (w/o api backend function)
+    writeUserData(1,2,3,4);
 
     // api test
-    /*
     console.log("test from frontside")
     $.post("/api/foo", function(data) {
         console.log( "Foo function result:", data );

@@ -35,7 +35,7 @@ var serviceAccount = require("./key.json");
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     // The database URL depends on the location of the database
-    databaseURL: "https://reputable-a3bec-default-rtdb.firebaseio.com/",
+    databaseURL: "https://repu-table-default-rtdb.firebaseio.com/",
     databaseAuthVariableOverride: {
         uid: "my-service-worker" // todo
     }

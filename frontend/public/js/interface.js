@@ -13,6 +13,15 @@ let try_page = -1;
  * Onclick functions
  */
 async function connectOnClick() {
+
+    // api test
+    /*
+    console.log("test from frontside")
+    $.post("/api/foo", function(data) {
+        console.log( "Foo function result:", data );
+      });
+    */
+
     if (account !== '') return;
 
     // connect to metamask

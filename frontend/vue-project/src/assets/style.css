@@ -222,24 +222,6 @@ a:hover {
   font-size: 0.8rem;
 }
 
-.people-card,
-.chart-card,
-.uk-comment-avatar {
-  opacity: 0.9;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  -o-transition: all 0.4s;
-}
-
-.people-card:hover,
-.chart-card:hover,
-.uk-comment-avatar:hover {
-  transform: scale(1.08, 1.08);
-  opacity: 1.0;
-}
-
 .uk-offcanvas-close {
   padding: 30px;
 }

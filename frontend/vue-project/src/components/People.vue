@@ -18,6 +18,7 @@
         <div class="uk-child-width-1-2@s uk-padding" uk-grid>
           <div>
             <div
+              id="test"
               class="people-card uk-card uk-card-default"
               uk-toggle="target: #people-modal-1"
               type="button"
@@ -193,3 +194,18 @@
     </div>
   </div>
 </template>
+<style scoped>
+.people-card {
+  opacity: 0.9;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.people-card:hover {
+  transform: scale(1.08, 1.08);
+  opacity: 1;
+}
+</style>

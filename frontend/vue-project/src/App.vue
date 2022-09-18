@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from "vue-router";
 import NavBar from "./components/NavBar.vue";
 import Menu from "./components/Menu.vue";
 import Home from "./components/Home.vue";
+import Footer from "./components/Footer.vue";
 </script>
 
 <template>
@@ -58,4 +59,5 @@ import Home from "./components/Home.vue";
   </div>
 
   <RouterView />
+  <Footer />
 </template>

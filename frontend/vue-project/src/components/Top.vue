@@ -131,3 +131,18 @@ onUpdated(() => {
   afterUpdate();
 })
 </script>
+
+<style scoped>
+.chart-card {
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.chart-card:hover {
+  transform: scale(1.08, 1.08);
+  opacity: 1.0;
+}
+</style>

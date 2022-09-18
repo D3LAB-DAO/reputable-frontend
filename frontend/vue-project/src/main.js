@@ -4,21 +4,26 @@ import router from './router'
 import firebase from "firebase/compat/app";
 import firebaseConfig from './key.json'
 
-import './assets/main.css'
+// CSS
+import './assets/style.css'
+import './assets/uikit.css'
+
+// Frontend Scripts
+import "https://code.jquery.com/jquery-3.4.1.js"
+import "./assets/js/uikit.js"
+import "./assets/js/uikit-icons.js"
+import "https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"
+
+// Request function Scripts
+import "./assets/js/interface_request.js"
+
+// Interface function Scripts
+import "./assets/js/interface.js"
+
+// Chart
+import "https://cdn.jsdelivr.net/npm/chart.js"
 
 const app = createApp(App)
-/*
-const firebaseConfig = {
-    apiKey: "AIzaSyB8cvs-f2z2rzyCgV9hpsUapseMqZQMNt0",
-    authDomain: "repu-table.firebaseapp.com",
-    databaseURL: "https://repu-table-default-rtdb.firebaseio.com",
-    projectId: "repu-table",
-    storageBucket: "repu-table.appspot.com",
-    messagingSenderId: "1067494522826",
-    appId: "1:1067494522826:web:8a98fd2a5f0ee0bbe75933"
-};
-*/
-
 firebase.initializeApp(firebaseConfig);
 
 app.use(router)

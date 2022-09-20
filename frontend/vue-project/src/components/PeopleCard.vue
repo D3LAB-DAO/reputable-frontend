@@ -1,7 +1,6 @@
 <template>
   <div>
     <div
-      id="test"
       class="people-card uk-card uk-card-default"
       uk-toggle="target: #people-modal-1"
       type="button"
@@ -28,3 +27,25 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.people-card {
+  opacity: 0.9;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.people-card:hover {
+  transform: scale(1.08, 1.08);
+  opacity: 1;
+}
+
+.uk-card-default {
+  background-color: #fff;
+  color: #666;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+</style>

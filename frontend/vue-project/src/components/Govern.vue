@@ -36,7 +36,7 @@
             <div class="govern-token-card uk-card uk-card-default uk-card-body">
               <img
                 class="govern-token-img"
-                src="src/profile_1.png"
+                src="src/profile/profile_1.png"
                 width="60"
                 height="60"
                 alt=""
@@ -50,7 +50,7 @@
             <div class="govern-token-card uk-card uk-card-default uk-card-body">
               <img
                 class="govern-token-img"
-                src="src/profile_1.png"
+                src="src/profile/profile_1.png"
                 width="60"
                 height="60"
                 alt=""

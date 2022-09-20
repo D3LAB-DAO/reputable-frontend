@@ -38,7 +38,7 @@
                       <td>
                         <img
                           class="uk-preserve-width uk-border-circle"
-                          src="src/profile_1.png"
+                          src="src/profile/profile_1.png"
                           width="40"
                           height="40"
                           alt=""
@@ -67,7 +67,7 @@
                       <td>
                         <img
                           class="uk-preserve-width uk-border-circle"
-                          src="src/profile_1.png"
+                          src="src/profile/profile_1.png"
                           width="40"
                           height="40"
                           alt=""
@@ -94,7 +94,7 @@
                       <td>
                         <img
                           class="uk-preserve-width uk-border-circle"
-                          src="src/profile_1.png"
+                          src="src/profile/profile_1.png"
                           width="40"
                           height="40"
                           alt=""

@@ -6,6 +6,12 @@
 /* English Range - 'Besley', serif; */
 @import url('https://fonts.googleapis.com/css2?family=Besley:wght@400;700&display=swap');
 
+/* font-family: 'Pacifico', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* font-family: 'Quicksand', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');\
+
 html,
 body {
   /*font-family: 'Roboto Slab', serif;*/
@@ -76,6 +82,31 @@ a:hover {
   font-family: 'Besley', serif;
   font-weight: 600;
   margin: 0px 0px 0px 0px;
+}
+
+.quicksand-font-300 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+}
+
+.quicksand-font-400 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+}
+
+.quicksand-font-500 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+}
+
+.quicksand-font-600 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+}
+
+.quicksand-font-700 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
 }
 
 .section-title {
@@ -342,6 +373,7 @@ input:checked+.slider:before {
 
 /* Tablet landscape and bigger */
 @media screen and (max-width: 640px) {
+
   #nav-menu,
   #nav-title,
   #nav-connect {

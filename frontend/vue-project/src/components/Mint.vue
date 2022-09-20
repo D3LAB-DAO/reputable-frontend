@@ -13,7 +13,7 @@
               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
               consequat.</span
             >
-            <img class="uk-width-small uk-padding" src="src/mint.png" />
+            <img class="uk-width-small uk-padding" src="src/img/mint.png" />
             <form>
               <div class="uk-margin">
                 <input
@@ -63,7 +63,7 @@
                     <div class="uk-width-auto">
                       <img
                         class="uk-comment-avatar govern-token-img"
-                        src="src/profile_1.png"
+                        src="src/profile/profile_1.png"
                         width="80"
                         height="80"
                         alt=""

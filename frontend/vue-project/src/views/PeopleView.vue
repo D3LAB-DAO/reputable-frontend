@@ -1,9 +1,16 @@
 <script setup>
+import { RouterLink, RouterView } from "vue-router";
+import NavBar from "../components/NavBar.vue";
+import Menu from "../components/Menu.vue";
+import Footer from "../components/Footer.vue";
 import People from '../components/People.vue'
 </script>
 
 <template>
-  <main>
-    <People />
-  </main>
+  <div class='pattern'></div>
+  <NavBar />
+  <Menu />
+  <People />
+  <RouterView />
+  <Footer />
 </template>

@@ -1,16 +1,17 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import NavBar from "../components/NavBar.vue";
 import Menu from "../components/Menu.vue";
-import Footer from "../components/Footer.vue";
-import Top from '../components/Top.vue'
+import Top from "../components/Top.vue";
 </script>
 
 <template>
-  <div class='pattern'></div>
-  <NavBar />
-  <Menu />
-  <Top />
-  <RouterView />
-  <Footer />
+  <div class="pattern"></div>
+  <div uk-grid>
+    <div class="uk-width-1-4@m">
+      <Menu />
+    </div>
+    <div class="uk-width-3-4@m uk-width-1-1">
+      <Top />
+    </div>
+  </div>
 </template>

@@ -5,8 +5,8 @@ import firebase from "firebase/compat/app";
 import firebaseConfig from './key.json'
 
 // CSS
-import './assets/style.css'
 import './assets/uikit.css'
+import './assets/style.css'
 
 // Frontend Scripts
 import "https://code.jquery.com/jquery-3.4.1.js"

@@ -24,28 +24,13 @@ $(function () {
     .addIndicators() // add indicators (requires plugin)
     .addTo(controller);
 
-  /*
-  // get all slides
-  var slides = document.querySelectorAll("section.panel");
-
-  // create scene for every slide
-  for (var i = 0; i < slides.length; i++) {
-    new ScrollMagic.Scene({
-      triggerElement: slides[i],
-    })
-      .setPin(slides[i], { pushFollowers: false })
-      .addIndicators() // add indicators (requires plugin)
-      .addTo(controller);
-  }
-  */
-
   var revealElements = document.getElementsByClassName("digit");
   console.log(revealElements);
   for (var i = 0; i < revealElements.length; i++) {
     // create a scene for each element
     new ScrollMagic.Scene({
       triggerElement: revealElements[i], // y value not modified, so we can use element as trigger as well
-      offset: -400, // start a little later
+      offset: -800, // start a little later
       triggerHook: 0.1,
     })
       .setClassToggle(revealElements[i], "visible") // add class toggle
@@ -64,11 +49,9 @@ $(function () {
       <div class="full"><h1 class="cursive-font">&emsp;Reputable&emsp;</h1></div>
       <div class="full">
         <h1 class="cursive-font-bg">&emsp;Reputable &emsp;</h1>
-        <RouterLink to="/top"
-          ><button id="startbtn" class="uk-button uk-button-secondary">
+        <RouterLink to="/top"><button id="startbtn" class="uk-button uk-button-secondary">
             WebApp
-          </button></RouterLink
-        >
+          </button></RouterLink>
       </div>
     </section>
     <section class="panel two">
@@ -89,44 +72,50 @@ $(function () {
       <div class="spacer s2"></div>
     </section>
     <section class="panel three">
-      <div id="reveal-elements">
-        <!--div class="full">
-          <h3 class="cursive-font digit">1</h3>
-          <h3 class="cursive-font digit">2</h3>
-          <h3 class="cursive-font digit">3</h3>
-          <h3 class="cursive-font digit">4</h3>
-          <div class="uk-card uk-card-default uk-card-body uk-width-small digit">
-            <h3 class="uk-card-title">Default</h3>
-            <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-          <div class="uk-card uk-card-default uk-card-body uk-width-small digit">
-            <h3 class="uk-card-title">Default</h3>
-            <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-        </div-->
-        <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
-          <div class="digit uk-padding margin-15">
-            <div class="uk-card uk-card-default uk-card-body">
-              <h3 class="uk-card-title">Default</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      <div class="full">
+        <h3 class="margin-10 quicksand-font-700" style="display: block;">Applications</h3>
+        <div id="reveal-elements">
+          <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+            <div class="digit uk-padding">
+              <div class="uk-card uk-card-hover uk-card-default uk-card-body">
+                <h3 class="uk-card-title">Lending</h3>
+                <div class="uk-card-body">
+                <p>Reputable can be used for loan platform based on user's credit.
+                  This is because the value of an individual's coin is represented by credit.
+                  Users will try to increase their reputation for low-interest loans.
+                </p>
+                </div>
+                <div class="uk-card-footer">
+                  <a href="#" class="uk-button uk-button-text"><span uk-icon="chevron-right"></span> Go Webapp</a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="digit uk-padding margin-15">
-            <div class="uk-card uk-card-primary uk-card-body">
-              <h3 class="uk-card-title">Primary</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <div class="digit uk-padding">
+              <div class="uk-card uk-card-hover uk-card-primary uk-card-body">
+                <h3 class="uk-card-title">Talent Donation</h3>
+                <div class="uk-card-body">
+                <p>Talent Donation platform also can be one of the applications of Reputable.
+                  You can hire someone with a high reputation, or you can make your own talent donation to increase the value of your coins.
+                </p>
+                </div>
+                <div class="uk-card-footer">
+                  <a href="#" class="uk-button uk-button-text"><span uk-icon="chevron-right"></span> Go Webapp</a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="digit uk-padding margin-15">
-            <div class="uk-card uk-card-secondary uk-card-body">
-              <h3 class="uk-card-title">Secondary</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <div class="digit uk-padding">
+              <div class="uk-card uk-card-hover uk-card-secondary uk-card-body">
+                <h3 class="uk-card-title">Etc.</h3>
+                <div class="uk-card-body">
+                <p>
+                  Furthermore, Reputable can be applied to various services based on reputation.
+                  There are many activities in the world that affect credit, and many services based on that credit.
+                  Reputable can be extended to various applications for such reputation management.</p>
+                </div>
+                <div class="uk-card-footer">
+                  <a href="#" class="uk-button uk-button-text"><span uk-icon="chevron-right"></span> You can make!</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -134,12 +123,12 @@ $(function () {
     </section>
     <section class="panel four">
       <div class="full">
-        <h1>
+        <h3 class="margin-15 quicksand-font-700" style="display: block;">About Us<br/><br/>
         <a href="https://twitter.com/D3LAB_DAO" target="_blank" uk-icon="icon: twitter; ratio: 7"></a>
         <a href="https://github.com/REPU-table" target="_blank" uk-icon="icon: github; ratio: 7"></a>
         <a href="https://www.youtube.com/c/D3LAB" target="_blank" uk-icon="icon: youtube; ratio: 7"></a>
         <a href="mailto:d3lab.dao@gmail.com" target="_blank" uk-icon="icon: google; ratio: 7"></a>
-        </h1>
+        </h3>
       </div>
     </section>
   </div>
@@ -181,8 +170,19 @@ h5 {
   font-size: 2rem;
   color: #fff;
 }
+.uk-card-title {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+}
+.uk-card-body {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+}
 .margin-15 {
   margin-top: 15%;
+}
+.margin-10 {
+  margin-top: 10%;
 }
 .imgbackground {
   z-index: -1;

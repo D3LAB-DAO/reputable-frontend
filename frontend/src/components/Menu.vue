@@ -37,21 +37,21 @@
     <div>
       <ul class="uk-nav-default" uk-nav="multiple: true">
         <li>
-          <RouterLink to="/top"
+          <RouterLink to="/trending"
             ><div class="uk-button uk-button-text">
               <span uk-icon="chevron-right"></span>Trending now
             </div></RouterLink
           >
         </li>
         <li>
-          <router-link to="/people"
+          <router-link to="/explore"
             ><a class="uk-button uk-button-text"
               ><span uk-icon="chevron-right"></span>Explore</a
             ></router-link
           >
         </li>
         <li>
-          <RouterLink to="/govern"
+          <RouterLink to="/governance"
             ><div class="uk-button uk-button-text">
               <span uk-icon="chevron-right"></span>Governance
             </div></RouterLink
@@ -60,13 +60,13 @@
         <li class="uk-nav-divider"></li>
         <li class="uk-nav-header">Applications</li>
         <li>
-          <a href="#"
+          <a href="/lend"
             ><span class="uk-margin-small-right" uk-icon="icon: credit-card"></span>Credit
             Loan</a
           >
         </li>
         <li>
-          <a href="#"
+          <a href="/mint"
             ><span class="uk-margin-small-right" uk-icon="icon: cart"></span> Talent
             Marketplace</a
           >
@@ -93,10 +93,10 @@
       <button class="uk-offcanvas-close" type="button" uk-close></button>
       <ul class="uk-nav uk-nav-default uk-text-large padding-top">
         <li class="menu-top" uk-toggle="#offcanvas-slide">
-          <RouterLink to="/top">Trending now</RouterLink>
+          <RouterLink to="/trending">Trending now</RouterLink>
         </li>
         <li class="menu-people" uk-toggle="#offcanvas-slide">
-          <RouterLink to="/people">Explore</RouterLink>
+          <RouterLink to="/explore">Explore</RouterLink>
         </li>
         <!--li class="menu-lend" uk-toggle="#offcanvas-slide">
           <RouterLink to="/lend">Lend</RouterLink>
@@ -105,7 +105,7 @@
           <RouterLink to="/mint">Mint</RouterLink>
         </li-->
         <li class="menu-govern" uk-toggle="#offcanvas-slide">
-          <RouterLink to="/govern">Governance</RouterLink>
+          <RouterLink to="/governance">Governance</RouterLink>
         </li>
       </ul>
     </div>

@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import Menu from "../components/Menu.vue";
-import People from '../components/People.vue'
+import Governance from '../components/Governance.vue'
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import People from '../components/People.vue'
       <Menu />
     </div>
     <div class="uk-width-3-4@m uk-width-1-1">
-      <People />
+      <Governance />
     </div>
   </div>
 </template>

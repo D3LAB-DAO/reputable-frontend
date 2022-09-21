@@ -10,17 +10,17 @@ const router = createRouter({
       component: AboutView
     },
     {
-      path: '/top',
-      name: 'top',
+      path: '/trending',
+      name: 'trending',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/TopView.vue')
+      component: () => import('../views/TrendingView.vue')
     },
     {
-      path: '/people',
-      name: 'people',
-      component: () => import('../views/PeopleView.vue')
+      path: '/explore',
+      name: 'explore',
+      component: () => import('../views/ExploreView.vue')
     },
     {
       path: '/lend',
@@ -33,9 +33,9 @@ const router = createRouter({
       component: () => import('../views/MintView.vue')
     },
     {
-      path: '/govern',
-      name: 'govern',
-      component: () => import('../views/Governview.vue')
+      path: '/governance',
+      name: 'governance',
+      component: () => import('../views/Governanceview.vue')
     }
   ]
 })

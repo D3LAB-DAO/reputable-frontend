@@ -49,7 +49,7 @@ $(function () {
       <div class="full"><h1 class="cursive-font">&emsp;Reputable&emsp;</h1></div>
       <div class="full">
         <h1 class="cursive-font-bg">&emsp;Reputable &emsp;</h1>
-        <RouterLink to="/top"><button id="startbtn" class="uk-button uk-button-secondary">
+        <RouterLink to="/trending"><button id="startbtn" class="uk-button uk-button-secondary">
             WebApp
           </button></RouterLink>
       </div>

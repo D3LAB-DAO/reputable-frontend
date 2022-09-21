@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import Menu from "../components/Menu.vue";
-import Top from "../components/Top.vue";
+import Trending from "../components/Trending.vue";
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import Top from "../components/Top.vue";
       <Menu />
     </div>
     <div class="uk-width-3-4@m uk-width-1-1">
-      <Top />
+      <Trending />
     </div>
   </div>
 </template>

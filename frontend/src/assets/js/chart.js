@@ -85,6 +85,7 @@ const options = {
     maintainAspectRatio: false
 }
 
+/*
 const data_1 = {
     labels: labels,
     datasets: [
@@ -207,3 +208,6 @@ function afterUpdate() {
         config_5
     );
 };
+*/
+
+export { labels, options }

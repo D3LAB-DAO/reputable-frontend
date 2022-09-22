@@ -1,7 +1,7 @@
 <template>
   <div id="page-people">
     <div class="section">
-      <h3 class="title-font section-title">&emsp;People&emsp;</h3>
+      <h3 class="title-font section-title">&emsp;Explore&emsp;</h3>
 
       <div class="uk-width-2xlarge inline-block">
         <div class="uk-width-1-1">

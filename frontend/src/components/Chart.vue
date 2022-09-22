@@ -3,15 +3,19 @@ import { labels, options } from "../assets/js/chart.js";
 export default {
   props: {
     history: { type: Array },
+    color: { type: Number }
   },
   mounted() {
+    let chartColor = "rgb(255, 99, 132)"; // default
+    if ( this.color == 1 ) chartColor = "rgb(83, 200, 132)";
+
     const data_1 = {
       labels: labels,
       datasets: [
         {
           label: "rPSH",
-          backgroundColor: "rgb(255, 99, 132)",
-          borderColor: "rgb(255, 99, 132)",
+          backgroundColor: chartColor,
+          borderColor: chartColor,
           data: this.history,
         },
       ],

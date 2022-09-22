@@ -2,8 +2,8 @@
   <div id="page-lend">
     <div class="section">
       <h3 class="title-font section-title">&emsp;Lend&emsp;</h3>
-      <div class="uk-width-2xlarge inline-block">
-        <div class="uk-width-2xlarge inline-block">
+      <div class="uk-width-3xlarge inline-block">
+        <div class="uk-width-3xlarge inline-block">
           <div class="uk-card uk-card-default margin-30 uk-margin-remove-bottom">
             <div class="uk-padding align-left">
               <span uk-icon="heart"></span>
@@ -20,7 +20,7 @@
             </div>
           </div>
         </div>
-        <div class="uk-width-2xlarge inline-block">
+        <div class="uk-width-3xlarge inline-block">
           <div class="uk-card uk-card-default margin-30 padding-bottom">
             <div class="uk-padding">
               <div class="uk-overflow-auto">

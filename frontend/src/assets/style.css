@@ -241,6 +241,30 @@ a:hover {
   cursor: pointer;
 }
 
+.chart-card,
+.people-card {
+  opacity: 0.9;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.chart-card:hover,
+.people-card:hover {
+  transform: scale(1.08, 1.08);
+  opacity: 1;
+}
+
+.color0 {
+  color: rgb(255, 99, 132);
+}
+
+.color1 {
+  color: rgb(83, 200, 132);
+}
+
 .govern-token-card {
   height: 200px;
 }

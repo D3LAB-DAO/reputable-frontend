@@ -2,26 +2,6 @@
 import ChartCard from "./ChartCard.vue";
 import { getDatabase, ref, onValue } from "firebase/database";
 
-let trendingUserLists = [];
-/*
-async function loadFromFirebase() {
-  const db = getDatabase();
-  const refs = ref(db, "trending");
-  onValue(refs, (snapshot) => {
-    const trendingUserIDs = snapshot.val();
-
-    for (let i = 0; i < trendingUserIDs.length; i++) {
-      const key = trendingUserIDs[i];
-      const refTrendingUser = ref(db, "users/" + key);
-      onValue(refTrendingUser, (snap) => {
-        const trendingUser = snap.val();
-        trendingUserLists.push(trendingUser);
-      });
-    }
-  });
-}
-*/
-
 export default {
   components: {
     ChartCard,

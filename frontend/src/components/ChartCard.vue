@@ -24,9 +24,8 @@ export default {
         getProfileUrl() {
             return new URL(`../profile/` + this.name + `_square.png`, import.meta.url).href
         },
-
         getTokenName() {
-            this.name.substring(0,3).toUpperCase()
+            return this.name.substring(0,3).toUpperCase()
         },
         getPriceDiff() {
             var diff = this.priceHistory[this.priceHistory.length - 1] - this.priceHistory[0];
@@ -55,7 +54,7 @@ export default {
 </script>
 
 <template>
-  <div class="uk-width-2xlarge inline-block">
+  <div class="uk-width-3xlarge inline-block">
     <div
       class="chart-card uk-card uk-card-default margin-30 uk-margin-remove-bottom padding-bottom"
     >
@@ -79,26 +78,3 @@ export default {
     </div>
   </div>
 </template>
-
-<style scoped>
-.chart-card {
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  -o-transition: all 0.4s;
-}
-
-.chart-card:hover {
-  transform: scale(1.08, 1.08);
-  opacity: 1;
-}
-
-.color0 {
-  color: rgb(255, 99, 132);
-}
-
-.color1 {
-  color: rgb(83, 200, 132);
-}
-</style>

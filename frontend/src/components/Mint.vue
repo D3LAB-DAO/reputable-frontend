@@ -5,7 +5,7 @@
 
       <!-- mint card -->
       <div id="mint-card">
-        <div class="uk-width-2xlarge inline-block">
+        <div class="uk-width-3xlarge inline-block">
           <div class="uk-card uk-card-default margin-30 padding-bottom">
             <span class="uk-padding section-text"
               >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -37,8 +37,8 @@
 
       <!-- mypage card-->
       <div id="mypage-card">
-        <div class="uk-width-2xlarge inline-block">
-          <div class="uk-width-2xlarge inline-block">
+        <div class="uk-width-3xlarge inline-block">
+          <div class="uk-width-3xlarge inline-block">
             <div
               class="chart-card uk-card uk-card-default margin-30 uk-margin-remove-bottom padding-bottom"
             >
@@ -55,7 +55,7 @@
               </div>
             </div>
           </div>
-          <div class="uk-width-2xlarge inline-block">
+          <div class="uk-width-3xlarge inline-block">
             <div class="uk-card uk-card-default margin-30 padding-bottom">
               <article class="uk-padding uk-comment">
                 <header class="uk-comment-header">

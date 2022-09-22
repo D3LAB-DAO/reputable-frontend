@@ -11,7 +11,7 @@
         ></span>
       </h3>
 
-      <div class="uk-width-2xlarge inline-block">
+      <div class="uk-width-3xlarge inline-block">
         <ul
           class="uk-grid-small uk-child-width-1-1 uk-child-width-1-3@s"
           uk-sortable="handle: .uk-card"

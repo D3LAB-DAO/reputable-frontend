@@ -31,7 +31,8 @@
   <!-- Menu -->
   <div
     id="nav-menu"
-    class="uk-card uk-card-default uk-card-body uk-width-1-1 uk-height-1-1 uk-height-viewport"
+    class="uk-card uk-card-default uk-card-body uk-width-1-1 uk-height-viewport"
+    uk-sticky="end: true"
   >
     <div style="padding-bottom: 30px"><h1 class="logo-font">Reputable</h1></div>
     <div>

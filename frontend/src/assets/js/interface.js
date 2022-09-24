@@ -38,8 +38,6 @@ async function connectOnClick() {
     }
 }
 
-console.log(connectOnClick)
-
 function movePageOnClick(targetIdx) {
     if (targetIdx == current_page) return;
     if (targetIdx == try_page) try_page = -1;

@@ -23,6 +23,18 @@ async function connectMetamask() {
     $('.connect-btn-text').html("Error!");
     $('.connect-btn-text-sm').html("ERR!");
     $('.connect-btn').attr('uk-tooltip', "Metamask required");
+    console.log("metamask required");
     return false;
   }
 }
+
+function getAccount() {
+  console.log("getAccount - ", account );
+  return account;
+}
+
+function getContract() {
+  return contract;
+}
+
+export { connectMetamask, getAccount, getContract }

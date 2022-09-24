@@ -1,3 +1,40 @@
+<script>
+import { connectMetamask, getAccount, getContract } from "../assets/js/interface_request.js";
+
+export default {
+  data() {
+    return {
+      btnTextSmall: '→',
+      btnText: 'Metamask →',
+      btnTooltip: 'Connect to metamask',
+    };
+  },
+  methods: {
+    connectOnClick: function () {
+      if (getAccount() !== '') return;
+
+      let result;
+      connectMetamask().then((success) => {
+        if (success) {
+          console.log("metamask successfully connected!");
+          let account = getAccount();
+          this.btnText = account.substr(0, 8) + '....' + account.substr(account.length - 8, 8);
+          this.btnTextSmall = account.substr(0, 4);
+          this.btnTooltip = account;
+        }
+        else {
+          console.log("metamask connection failed!");
+      }
+      })
+    },
+    getConnected: function() {
+      console.log("connected" , this.connected)
+      return this.connected;
+    }
+  }
+}
+</script>
+
 <template>
   <!-- Nav Bar (Interactive) -->
   <nav
@@ -23,10 +60,10 @@
         <button
           class="connect-btn uk-button uk-button-secondary uk-button-small"
           style="font-size: 0.5rem; background-color: #f89d35"
-          @click="login2"
-          uk-tooltip="title: Connect to metamask"
+          @click="connectOnClick"
+          :uk-tooltip="`title: ` + btnTooltip"
         >
-          <span class="connect-btn-text-sm">→</span>
+          <span ref="conntectBtn" class="connect-btn-text-sm">{{ btnTextSmall }}</span>
         </button>
       </div>
     </div>
@@ -81,11 +118,11 @@
         <div id="nav-connect">
           <button
             class="connect-btn uk-button uk-button-danger uk-button-small"
-            @click="login2"
-            uk-tooltip="title: Connect to metamask; pos: bottom"
+            @click="connectOnClick"
+            :uk-tooltip="`title: ` + btnTooltip + `; pos: bottom`"
             style="background-color: #f89d35"
           >
-            <span class="connect-btn-text" style="color: white">Metamask →</span>
+            <span ref="connectBtn" class="connect-btn-text" style="color: white">{{ btnText }}</span>
           </button>
         </div>
       </ul>

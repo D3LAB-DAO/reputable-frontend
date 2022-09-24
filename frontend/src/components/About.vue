@@ -25,7 +25,6 @@ $(function () {
     .addTo(controller);
 
   var revealElements = document.getElementsByClassName("digit");
-  console.log(revealElements);
   for (var i = 0; i < revealElements.length; i++) {
     // create a scene for each element
     new ScrollMagic.Scene({

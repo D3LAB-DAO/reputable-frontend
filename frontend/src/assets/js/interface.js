@@ -1,5 +1,3 @@
-console.log("interface.js loaded")
-
 /* Constants */
 // Page Types
 const PAGES = ['home', 'top', 'people', 'lend', 'mint', 'govern', 'wallet'];
@@ -15,7 +13,6 @@ let try_page = -1;
  * Onclick functions
  */
 async function connectOnClick() {
-    console.log("hhh");
     if (account !== '') return;
 
     // connect to metamask

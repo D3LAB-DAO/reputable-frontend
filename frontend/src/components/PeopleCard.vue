@@ -7,14 +7,11 @@ export default {
     return { getFloatFixed };
   },
   props: {
-    name: { type: String, default: "Carl" },
-    price: { type: Number, default: 33.18 },
-    priceHistory: { type: Array, default: [33.18, 33.5] },
-    desc: {
-      type: String,
-      default:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
+    name: { type: String, default: "" },
+    url: { type: String, default: "" },
+    price: { type: Number, default: 0 },
+    priceHistory: { type: Array, default: [] },
+    desc: { type: String, default: "" },
   },
   data() {
     return {
@@ -23,6 +20,7 @@ export default {
   },
   methods: {
     getProfileUrl() {
+      if (this.url !== "") return this.url;
       return new URL(`../profile/` + this.name + `_square.png`, import.meta.url).href;
     },
     getTokenName() {

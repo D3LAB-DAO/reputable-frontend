@@ -28,10 +28,6 @@ export default {
           this.emitter.emit("metamask-connect-event", false);
       }
       })
-    },
-    getConnected: function() {
-      console.log("connected" , this.connected)
-      return this.connected;
     }
   }
 }

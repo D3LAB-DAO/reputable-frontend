@@ -1,3 +1,29 @@
+<script>
+import { getAccount, store, retrieve } from "../assets/js/interface_request.js";
+import { getDatabase, ref, set } from "firebase/database";
+
+export default {
+  data() {
+    return {
+      name: '',
+      url:'',
+      desc:'',
+    }
+  },
+  methods: {
+    writeToFirebase: function () {
+      console.log("Write To Firebase! : ", this.name, this.url, this.desc);
+      const db = getDatabase();
+      set(ref(db, "users/" + getAccount()), {
+        name: this.name,
+        url: this.url,
+        desc: this.desc,
+      });
+    },
+  },
+};
+</script>
+
 <template>
   <div id="modal-center" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
@@ -14,38 +40,34 @@
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat.</span
           >
-          <img class="uk-width-small uk-padding" src="src/img/mint.png" />
-          <form>
+          <img class="uk-width-medium uk-padding" :src="url" />
+          <form @submit.prevent="writeToFirebase">
             <div>
-                <input
+              <input
                 class="uk-input uk-form-success uk-form-width-large uk-form-large"
                 type="text"
+                v-model="url"
                 placeholder="✏️ Image Url (Optional)"
               />
-                </div>
-                <div class="uk-margin">
-                <input
+            </div>
+            <div class="uk-margin">
+              <input
                 class="uk-input uk-form-success uk-form-width-large uk-form-large"
                 type="text"
+                v-model="desc"
                 placeholder="✏️ Description (Optional)"
               />
-                </div>
+            </div>
             <div class="uk-margin">
               <input
                 class="uk-input uk-form-success uk-form-width-medium uk-form-large"
                 type="text"
+                v-model="name"
                 placeholder="✏️ Name*"
               />
               <button class="uk-button uk-button-success uk-button-large">MINT!</button>
             </div>
           </form>
-        </div>
-        <div>
-          <span class="small-text">
-            <a href="https://www.flaticon.com/free-icons/mint" title="mint icons"
-              >Mint icons created by Aldo Cervantes - Flaticon</a
-            >
-          </span>
         </div>
       </div>
     </div>

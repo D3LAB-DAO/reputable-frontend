@@ -7,16 +7,18 @@ import Wallet from "./components/Wallet.vue";
 export default {
   data() {
     return {
-      connected: true,
+      connected: false,
     };
   },
   components: {
     Menu,
     Wallet,
   },
-  updated() {
-    //this.connected = getAccount() !== '';
-  },
+  mounted() {
+    this.emitter.on("metamask-connect-event",
+      msg => { this.connected = true;}
+    );
+  }
 };
 </script>
 

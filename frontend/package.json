@@ -9,6 +9,7 @@
   "dependencies": {
     "firebase": "^9.10.0",
     "gsap": "^3.11.1",
+    "mitt": "^3.0.0",
     "particlesjs": "^2.2.3",
     "scrollmagic": "^2.0.8",
     "vue": "^3.2.38",

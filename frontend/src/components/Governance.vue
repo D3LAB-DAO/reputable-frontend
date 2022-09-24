@@ -4,7 +4,7 @@ import GovernCard from "./GovernCard.vue";
 export default {
   components: {
     GovernCard,
-  },
+  }
 }
 </script>
 

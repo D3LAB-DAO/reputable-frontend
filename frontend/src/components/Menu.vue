@@ -21,9 +21,11 @@ export default {
           this.btnText = account.substr(0, 8) + '....' + account.substr(account.length - 8, 8);
           this.btnTextSmall = account.substr(0, 4);
           this.btnTooltip = account;
+          this.emitter.emit('metamask-connect-event', true);
         }
         else {
           console.log("metamask connection failed!");
+          this.emitter.emit("metamask-connect-event", false);
       }
       })
     },

@@ -1,8 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import firebase from "firebase/compat/app";
+import firebase from "firebase/compat/app"
 import firebaseConfig from './key.json'
+import mitt from 'mitt'
 
 // CSS
 import './assets/uikit.css'
@@ -18,13 +19,18 @@ import "https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"
 import "./assets/js/interface_request.js"
 
 // Interface function Scripts
-import "./assets/js/interface.js"
+//import "./assets/js/interface.js"
 
 // Chart
 import "https://cdn.jsdelivr.net/npm/chart.js"
 
 const app = createApp(App)
-firebase.initializeApp(firebaseConfig);
+
+// Event Bus
+const emitter = mitt()
+app.config.globalProperties.emitter = emitter
+
+firebase.initializeApp(firebaseConfig)
 
 app.use(router)
 

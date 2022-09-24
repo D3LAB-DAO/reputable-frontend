@@ -12,6 +12,8 @@ export default {
     price: { type: Number, default: 0 },
     priceHistory: { type: Array, default: [] },
     desc: { type: String, default: "" },
+    depositValue: { type: Number, default: 0 },
+    withdrawValue: { type: Number, default: 0 },
   },
   data() {
     return {
@@ -75,7 +77,7 @@ export default {
         >
       </div>
       <hr />
-      <div class="uk-padding uk-padding-remove-top align-left" style="height: 100px;">
+      <div class="uk-padding uk-padding-remove-top align-left" style="height: 100px">
         <dl class="uk-description-list">
           <dt>Description</dt>
           <dd>{{ desc.substring(0, 60) + "..." }}</dd>
@@ -97,15 +99,75 @@ export default {
         <div class="uk-padding-large">
           <h1>{{ name }}</h1>
           <p>{{ desc }}</p>
-          <div id="people-button-group" class="uk-width-1-1 uk-button-group">
-            <button class="uk-width-1-3 uk-button uk-button-danger">DEPOSIT</button>
-            <button class="uk-width-1-3 uk-button uk-button-primary">WITHDRAW</button>
-            <button class="uk-width-1-3 uk-button uk-button-secondary">CLAIM</button>
+
+          <div
+            class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@m"
+            uk-grid
+          >
+            <li>
+              <div class="govern-token-card uk-card uk-card-default uk-card-body">
+                <div class="align-left">
+                  <span uk-icon="heart"></span>
+                  <span class="token-name">{{ getTokenName() }}</span>
+                  <span class="token-fullname">{{ name }}</span>
+                  <br />
+                  <span class="token-price" :class="colorClass">{{ price }}</span>
+                  <span class="token-price-diff" :class="colorClass" style="font-size:0.7rem; padding-left: 0px;">{{ getPriceDiff() }} ({{ getPriceDiffRate() }})</span
+                  >
+                </div>
+                <hr class="margin-y-small" />
+                <div class="align-left">
+                  <span class="govern-token-rate">Total Supply</span>
+                  <br />
+                  <span class="token-price">39,590,000</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="govern-token-card uk-card uk-card-default uk-card-body">
+                <div class="align-left">
+                  <span class="govern-token-rate">deposited REPU</span>
+                  <br />
+                  <span class="token-price">39,590,000</span>
+                </div>
+                <hr class="margin-y-small" />
+                <div class="align-left">
+                  <span class="govern-token-rate">claimable REPU</span>
+                  <br />
+                  <span class="token-price">39,590,000</span>
+                </div>
+              </div>
+            </li>
           </div>
-          <div id="people-button-group-md" class="uk-width-1-1">
-            <button class="uk-width-1-1 uk-button uk-button-danger">DEPOSIT</button>
-            <button class="uk-width-1-1 uk-button uk-button-primary">WITHDRAW</button>
-            <button class="uk-width-1-1 uk-button uk-button-secondary">CLAIM</button>
+
+          <div class="uk-width-1-1 uk-button-group">
+            <input
+              class="uk-input uk-form-danger uk-width-2-3 uk-form-large"
+              type="text"
+              v-model="depositValue"
+              placeholder="Value"
+            />
+            <button class="uk-button uk-button-danger uk-width-1-3 uk-button-large">
+              DEPOSIT
+            </button>
+          </div>
+
+          <div class="uk-margin uk-width-1-1 uk-button-group">
+            <input
+              class="uk-input uk-form-primary uk-width-2-3 uk-form-large"
+              type="text"
+              v-model="withdrawValue"
+              placeholder="Value"
+            />
+            <button class="uk-button uk-button-primary uk-width-1-3 uk-button-large">
+              WITHDRAW
+            </button>
+          </div>
+
+          <div>
+            <button class="uk-button uk-button-secondary uk-width-1-1 uk-button-large">
+              CLAIM
+            </button>
           </div>
         </div>
       </div>
@@ -113,4 +175,9 @@ export default {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.govern-token-card {
+  margin-bottom: 20px;
+  padding-top: 30px;
+}
+</style>

@@ -1,10 +1,10 @@
 <template>
   <div id="page-lend">
     <div class="section">
-      <h3 class="title-font section-title">&emsp;Lend&emsp;</h3>
-      <div class="uk-width-3xlarge inline-block">
-        <div class="uk-width-3xlarge inline-block">
-          <div class="uk-card uk-card-default margin-30 uk-margin-remove-bottom">
+      <div class="title">Borrow</div>
+      <div class="uk-width-1-1 inline-block">
+        <div class="uk-width-1-1 inline-block">
+          <div class="uk-card uk-card-default">
             <div class="uk-padding align-left">
               <span uk-icon="heart"></span>
               <span class="token-name">BTC</span>
@@ -20,8 +20,8 @@
             </div>
           </div>
         </div>
-        <div class="uk-width-3xlarge inline-block">
-          <div class="uk-card uk-card-default margin-30 padding-bottom">
+        <div class="uk-width-1-1 inline-block">
+          <div class="uk-card uk-card-default">
             <div class="uk-padding">
               <div class="uk-overflow-auto">
                 <table id="lend-table" class="uk-table uk-table-divider uk-table-hover">
@@ -38,7 +38,7 @@
                       <td>
                         <img
                           class="uk-preserve-width uk-border-circle"
-                          src="src/profile/profile_1.png"
+                          src="src/profile/luke_square.png"
                           width="40"
                           height="40"
                           alt=""
@@ -67,7 +67,7 @@
                       <td>
                         <img
                           class="uk-preserve-width uk-border-circle"
-                          src="src/profile/profile_1.png"
+                          src="src/profile/luke_square.png"
                           width="40"
                           height="40"
                           alt=""
@@ -94,7 +94,7 @@
                       <td>
                         <img
                           class="uk-preserve-width uk-border-circle"
-                          src="src/profile/profile_1.png"
+                          src="src/profile/luke_square.png"
                           width="40"
                           height="40"
                           alt=""
@@ -137,30 +137,25 @@
       </div>
     </div>
   </div>
-
-  <!-- lend-modal -->
-  <div id="lend-modal-1" uk-modal>
-    <div class="uk-modal-dialog">
-      <button class="uk-modal-close-default" type="button" uk-close></button>
-      <div class="uk-modal-header">
-        <h2 class="uk-modal-title">Modal Title</h2>
-      </div>
-      <div class="uk-modal-body">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-          nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </div>
-      <div class="uk-modal-footer uk-text-right">
-        <button class="uk-button uk-button-default uk-modal-close" type="button">
-          Cancel
-        </button>
-        <button class="uk-button uk-button-primary" type="button">Save</button>
-      </div>
-    </div>
-  </div>
 </template>
+
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+.title {
+  font-family: "Righteous", cursive;
+  font-size: 2rem;
+  color: grey;
+  text-align: center;
+  padding-left: 20px;
+}
+.uk-card {
+  margin-top: 20px;
+}
+.uk-card-default {
+  border-radius: 25px;
+  opacity: .7;
+}
+.section {
+  padding-top: 0px;
+}
+</style>

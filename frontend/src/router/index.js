@@ -23,19 +23,14 @@ const router = createRouter({
       component: () => import('../views/ExploreView.vue')
     },
     {
-      path: '/lend',
-      name: 'lend',
-      component: () => import('../views/LendView.vue')
-    },
-    {
-      path: '/mint',
-      name: 'mint',
-      component: () => import('../views/MintView.vue')
-    },
-    {
       path: '/governance',
       name: 'governance',
       component: () => import('../views/Governanceview.vue')
+    },
+    {
+      path: '/repuloan',
+      name: 'repuloan',
+      component: () => import('../views/RepuLoan.vue')
     }
   ]
 })

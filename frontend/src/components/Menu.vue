@@ -61,14 +61,14 @@
         <li class="uk-nav-divider"></li>
         <li class="uk-nav-header">Applications</li>
         <li>
-          <a href="/lend"
-            ><span class="uk-margin-small-right" uk-icon="icon: credit-card"></span>Credit
+          <a href="/repuloan" target="_blank"
+            ><span class="uk-margin-small-right" uk-icon="icon: forward"></span>Credit
             Loan</a
           >
         </li>
         <li>
           <a href="/mint"
-            ><span class="uk-margin-small-right" uk-icon="icon: cart"></span> Talent
+            ><span class="uk-margin-small-right" uk-icon="icon: forward"></span> Talent
             Marketplace</a
           >
         </li>

@@ -38,8 +38,6 @@ export default {
   margin-top: 50px;
   line-height: 3rem;
   outline : solid 2px rgba(255, 255, 255, 0.5);
-  width: 150px;
-  height: 100px;
 }
 
 #container {

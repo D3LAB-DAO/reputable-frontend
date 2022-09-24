@@ -1,6 +1,10 @@
 <template>
   <!-- Nav Bar (Interactive) -->
-  <nav id="nav-bar-sm" class="uk-navbar-container uk-navbar-transparent uk-padding" uk-navbar>
+  <nav
+    id="nav-bar-sm"
+    class="uk-navbar-container uk-navbar-transparent uk-padding"
+    uk-navbar
+  >
     <div class="uk-navbar-left">
       <a
         class="uk-navbar-toggle"
@@ -18,7 +22,7 @@
       <div id="nav-connect-sm">
         <button
           class="connect-btn uk-button uk-button-secondary uk-button-small"
-          style="font-size: 0.5rem; background-color:#f89d35;"
+          style="font-size: 0.5rem; background-color: #f89d35"
           @click="login2"
           uk-tooltip="title: Connect to metamask"
         >
@@ -67,23 +71,23 @@
           >
         </li>
         <li>
-          <a href="/mint"
+          <a href="/repumarket" target="_blank"
             ><span class="uk-margin-small-right" uk-icon="icon: forward"></span> Talent
             Marketplace</a
           >
         </li>
-         <li class="uk-nav-divider"></li>
-          <li class="uk-nav-header"></li>
-          <div id="nav-connect">
-            <button
-              class="connect-btn uk-button uk-button-danger uk-button-small"
-              @click="login2"
-              uk-tooltip="title: Connect to metamask; pos: bottom"
-              style="background-color:#f89d35;"
-            >
-              <span class="connect-btn-text" style="color: white;">Metamask →</span>
-            </button>
-          </div>
+        <li class="uk-nav-divider"></li>
+        <li class="uk-nav-header"></li>
+        <div id="nav-connect">
+          <button
+            class="connect-btn uk-button uk-button-danger uk-button-small"
+            @click="login2"
+            uk-tooltip="title: Connect to metamask; pos: bottom"
+            style="background-color: #f89d35"
+          >
+            <span class="connect-btn-text" style="color: white">Metamask →</span>
+          </button>
+        </div>
       </ul>
     </div>
   </div>
@@ -99,14 +103,21 @@
         <li class="menu-people" uk-toggle="#offcanvas-slide">
           <RouterLink to="/explore">Explore</RouterLink>
         </li>
-        <!--li class="menu-lend" uk-toggle="#offcanvas-slide">
-          <RouterLink to="/lend">Lend</RouterLink>
-        </li>
-        <li class="menu-mint" uk-toggle="#offcanvas-slide">
-          <RouterLink to="/mint">Mint</RouterLink>
-        </li-->
         <li class="menu-govern" uk-toggle="#offcanvas-slide">
           <RouterLink to="/governance">Governance</RouterLink>
+        </li>
+        <li class="uk-nav-divider"></li>
+        <li class="menu-application" uk-toggle="#offcanvas-slide">
+          <RouterLink to="/repuloan" target="_blank"
+            ><span class="uk-margin-small-right" uk-icon="icon: forward"></span>Credit
+            Loan</RouterLink
+          >
+        </li>
+        <li class="menu-application" uk-toggle="#offcanvas-slide">
+          <RouterLink to="/repumarket" target="_blank"
+            ><span class="uk-margin-small-right" uk-icon="icon: forward"></span>Talent
+            Marketplace</RouterLink
+          >
         </li>
       </ul>
     </div>
@@ -116,5 +127,8 @@
 <style scoped>
 .router-link-active {
   font-weight: bold;
+}
+.menu-application {
+  font-size: 1rem;
 }
 </style>

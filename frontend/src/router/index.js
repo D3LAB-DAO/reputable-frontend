@@ -31,6 +31,11 @@ const router = createRouter({
       path: '/repuloan',
       name: 'repuloan',
       component: () => import('../views/RepuLoan.vue')
+    },
+    {
+      path: '/repumarket',
+      name: 'repumarket',
+      component: () => import('../views/RepuMarket.vue')
     }
   ]
 })

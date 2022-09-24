@@ -10,8 +10,8 @@ export default {
 </script>
 
 <template>
-  <div class="uk-width-1-1 uk-height-1-1">
-    <div class="logo">RepuLoan</div>
+  <div class="uk-text-center uk-width-1-1 uk-height-1-1">
+    <div class="logo">Repu<br/>Loan</div>
     <div id="container">
       <div uk-grid>
         <div class="uk-width-1-2@m">
@@ -29,12 +29,17 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
 .logo {
+    display: inline-block;
   font-family: "Righteous", cursive;
-  font-size: 5rem;
+  font-size: 4rem;
   color: white;
   text-align: center;
   opacity: 0.7;
-  padding-top: 20px;
+  margin-top: 50px;
+  line-height: 3rem;
+  outline : solid 2px rgba(255, 255, 255, 0.5);
+  width: 150px;
+  height: 100px;
 }
 
 #container {

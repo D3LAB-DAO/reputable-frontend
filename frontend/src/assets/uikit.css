@@ -1582,7 +1582,7 @@ select.uk-form-width-xsmall {
   width: 200px;
 }
 .uk-form-width-large {
-  width: 500px;
+  width: 320px;
 }
 /* Select
  ========================================================================== */
@@ -7506,6 +7506,9 @@ iframe[data-uk-cover] {
 }
 .uk-background-danger {
   background-color: #f0506e;
+}
+.uk-background-mint {
+  background-color: rgb(83, 200, 132);
 }
 /* Size
  ========================================================================== */

@@ -30,15 +30,15 @@ export default {
     },
     getPriceDiff() {
       var diff = this.priceHistory[this.priceHistory.length - 1] - this.priceHistory[0];
-      if (diff > 0) return "▲" + this.getFloatFixed(Math.abs(diff), 4);
-      else if (diff < 0) return "▼" + this.getFloatFixed(Math.abs(diff), 4);
+      if (diff > 0) return "▲" + this.getFloatFixed(Math.abs(diff), 2);
+      else if (diff < 0) return "▼" + this.getFloatFixed(Math.abs(diff), 2);
       else return "-";
     },
     getPriceDiffRate() {
       if (this.price == 0) return "-";
       var diff = this.priceHistory[this.priceHistory.length - 1] - this.priceHistory[0];
       var diffRate = diff / this.price;
-      return this.getFloatFixed(diffRate, 4) + "%";
+      return this.getFloatFixed(diffRate, 2) + "%";
     },
     setColor() {
       var diff = this.priceHistory[this.priceHistory.length - 1] - this.priceHistory[0];
@@ -63,7 +63,6 @@ export default {
   {{ setColor() }}
   <div>
     <div class="people-card uk-card uk-card-default" :uk-toggle="getTarget" type="button">
-      <div class="uk-card-badge uk-label uk-background-danger">HOT</div>
       <div class="uk-card-media-top">
         <img :src="getProfileUrl()" width="1800" height="1200" alt="" />
       </div>

@@ -12,7 +12,7 @@ export default {
   <div id="page-govern">
     <div class="section">
       <h3 class="title-font section-title">
-        &emsp;Govern&emsp;
+        &emsp;Governance&emsp;
       </h3>
 
       <div class="uk-width-3xlarge inline-block">

@@ -33,7 +33,7 @@ export default {
     },
     computed: {
       colorClass() {
-        if ( this.color == 0 ) return "uk-background-danger";
+        if ( this.color == 0 ) return "uk-background-primary";
         else return "uk-background-secondary";
       },
       stateClass() {

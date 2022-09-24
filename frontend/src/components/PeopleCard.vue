@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     getProfileUrl() {
-      return new URL(`../profile/` + this.name + `_full.png`, import.meta.url).href;
+      return new URL(`../profile/` + this.name + `_square.png`, import.meta.url).href;
     },
     getTokenName() {
       return this.name.substring(0, 3).toUpperCase();
@@ -78,7 +78,7 @@ export default {
         >
       </div>
       <hr />
-      <div class="uk-padding uk-padding-remove-top align-left">
+      <div class="uk-padding uk-padding-remove-top align-left" style="height: 100px;">
         <dl class="uk-description-list">
           <dt>Description</dt>
           <dd>{{ desc.substring(0, 60) + "..." }}</dd>

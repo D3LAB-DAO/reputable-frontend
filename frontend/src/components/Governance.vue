@@ -1,14 +1,18 @@
+<script>
+import GovernCard from "./GovernCard.vue";
+
+export default {
+  components: {
+    GovernCard,
+  },
+}
+</script>
+
 <template>
   <div id="page-govern">
     <div class="section">
       <h3 class="title-font section-title">
         &emsp;Govern&emsp;
-        <span
-          class="govern-icon"
-          uk-icon="icon: sign-out; ratio: 1"
-          onClick="window.open('https://www.tally.xyz/')"
-          uk-tooltip="title: Go Tally"
-        ></span>
       </h3>
 
       <div class="uk-width-3xlarge inline-block">
@@ -36,7 +40,7 @@
             <div class="govern-token-card uk-card uk-card-default uk-card-body">
               <img
                 class="govern-token-img"
-                src="src/profile/profile_1.png"
+                src="src/profile/luke_square.png"
                 width="60"
                 height="60"
                 alt=""
@@ -50,7 +54,7 @@
             <div class="govern-token-card uk-card uk-card-default uk-card-body">
               <img
                 class="govern-token-img"
-                src="src/profile/profile_1.png"
+                src="src/profile/luke_square.png"
                 width="60"
                 height="60"
                 alt=""
@@ -64,6 +68,10 @@
             </div>
           </li>
         </ul>
+      </div>
+      <div class="uk-width-3xlarge inline-block">
+        <GovernCard :state="0" :title="`Anchor (ANC) 2.0`" :expiredate="`Estimated end time Sat, Oct 1, 2022, 1:42:01`" :remaindays="7" :progress="30" />
+        <GovernCard :state="1" :title="`Dinner Menu`" :expiredate="`Estimated end time Sat, Sep 24, 2022, 0:00:00`" :remaindays="0" :progress="90" />
       </div>
     </div>
   </div>

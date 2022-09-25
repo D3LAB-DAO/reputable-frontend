@@ -1,22 +1,22 @@
 {
-  "name": "reputable-frontend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "vue-project",
+  "version": "0.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/REPU-table/reputable-frontend.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/REPU-table/reputable-frontend/issues"
-  },
-  "homepage": "https://github.com/REPU-table/reputable-frontend#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "firebase": "^9.10.0",
+    "gsap": "^3.11.1",
+    "mitt": "^3.0.0",
+    "particlesjs": "^2.2.3",
+    "scrollmagic": "^2.0.8",
+    "vue": "^3.2.38",
+    "vue-router": "^4.1.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.3",
+    "vite": "^3.0.9"
   }
 }

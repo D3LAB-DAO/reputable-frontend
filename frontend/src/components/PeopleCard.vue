@@ -24,6 +24,7 @@ export default {
     price: { type: Number, default: 0 },
     priceHistory: { type: Array, default: [] },
     desc: { type: String, default: "" },
+    mine: { type: Boolean, default: false },
   },
   data() {
     return {
@@ -154,6 +155,7 @@ export default {
   {{ setColor() }}
   <div>
     <div class="people-card uk-card uk-card-default" :uk-toggle="getTarget" type="button">
+      <div v-if="mine" class="uk-card-badge uk-label uk-background-mint">MY</div>
       <div class="uk-card-media-top">
         <img :src="getProfileUrl()" width="1800" height="1200" alt="" />
       </div>

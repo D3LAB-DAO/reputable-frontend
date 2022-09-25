@@ -20,11 +20,12 @@ export default {
   setup() {},
   data() {
     return {
-      users: [],
+      users: {},
+      myTokenInfo: {},
       loading: false,
       lastId: "",
       seeMore: true,
-      numOfElemInRow: 3,
+      numOfElemInRow: 6,
       mine: false,
       testvalue: 0,
     };
@@ -40,7 +41,7 @@ export default {
         const users_mine = snapshot_mine.val();
         if (users_mine) {
           this.mine = true;
-          this.users.push(users_mine);
+          this.myTokenInfo = users_mine;
         }
 
         const refs = query(
@@ -50,16 +51,17 @@ export default {
         );
         onValue(refs, (snapshot) => {
           let count = 0;
-          const users = snapshot.val();
-          for (var id in users) {
+          const users_ref = snapshot.val();
+          for (var id in users_ref) {
             this.lastId = id;
-            if (id === getAccount()) continue;
-            this.users.push(users[id]);
+            if (id in this.users) continue;
+            if (id === getAccount() ) { this.mine = true; this.myTokenInfo = users_ref[id]; continue; }
+            this.users[id] = users_ref[id];
             count++;
           }
           this.loading = true;
-          if (!this.mine && count < this.numOfElemInRow) this.seeMore = false;
-          else if (this.mine && count < this.numOfElemInRow - 1) this.seeMore = false;
+          //if (!this.mine && count < this.numOfElemInRow) this.seeMore = false;
+          //else if (this.mine && count < this.numOfElemInRow - 1) this.seeMore = false;
         });
       });
     },
@@ -74,14 +76,13 @@ export default {
       );
       onValue(refs, (snapshot) => {
         let count = 0;
-        const users = snapshot.val();
-        for (var id in users) {
+        const users_ref = snapshot.val();
+        for (var id in users_ref) {
           this.lastId = id;
-          if (id === getAccount()) continue;
-          this.users.push(users[id]);
+          if (id === getAccount() || id in this.users ) continue;
+          this.users[id] = users_ref[id];
           count++;
         }
-
         if (count < this.numOfElemInRow) this.seeMore = false;
       });
     },
@@ -89,21 +90,10 @@ export default {
       let account = getAccount();
       return account.substr(0, 8) + '....' + account.substr(account.length - 8, 8);
     }
-    /*
-    contractStore: function (num) {
-      store(num).then((res) => {
-        console.log("store done! : ", res);
-      });
-    },
-    contractRetrieve: function (num) {
-      retrieve().then((res) => {
-        console.log("retrieve done! : ", res);
-        this.testvalue = res;
-        return res;
-      });
-    },
-    */
   },
+  mounted() {
+    this.loadFromFirebase();
+  }
 };
 </script>
 
@@ -126,9 +116,6 @@ export default {
           </div>
         </div>
       </div>
-
-      {{ loadFromFirebase() }}
-
       <div v-if="loading">
         <!-- Row -->
         <div class="uk-width-1-1">
@@ -162,6 +149,16 @@ export default {
                   </div>
                 </a>
               </div>
+            </div>
+            <div v-else>
+              <PeopleCard
+                :name="myTokenInfo.name"
+                :price="myTokenInfo.price"
+                :priceHistory="myTokenInfo.priceHistory"
+                :desc="myTokenInfo.desc"
+                :url="myTokenInfo.url"
+                :mine=true
+              />
             </div>
             <div v-for="user in users">
               <PeopleCard

@@ -40,7 +40,7 @@ export default {
             <div class="govern-token-card uk-card uk-card-default uk-card-body">
               <img
                 class="govern-token-img"
-                src="src/profile/luke_square.png"
+                src="../profile/luke_square.png"
                 width="60"
                 height="60"
                 alt=""
@@ -54,7 +54,7 @@ export default {
             <div class="govern-token-card uk-card uk-card-default uk-card-body">
               <img
                 class="govern-token-img"
-                src="src/profile/luke_square.png"
+                src="../profile/luke_square.png"
                 width="60"
                 height="60"
                 alt=""

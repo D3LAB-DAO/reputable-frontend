@@ -123,6 +123,11 @@ export default {
             <span ref="connectBtn" class="connect-btn-text" style="color: white">{{ btnText }}</span>
           </button>
         </div>
+        <div style="position: fixed; left:30px; bottom:30px;">
+          <a href="http://d3lab.xyz/" style="padding-right: 5px;" target="_blank" uk-icon="icon: home; ratio: 1.2"></a>
+          <a href="https://github.com/REPU-table" style="padding-right: 5px;" target="_blank" uk-icon="icon: github; ratio: 1.2"></a>
+          <a href="https://www.youtube.com/c/D3LAB" target="_blank" uk-icon="icon: youtube; ratio: 1.2"></a>
+        </div>
       </ul>
     </div>
   </div>

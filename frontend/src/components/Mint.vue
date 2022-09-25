@@ -43,7 +43,7 @@
               class="chart-card uk-card uk-card-default margin-30 uk-margin-remove-bottom padding-bottom"
             >
               <div class="uk-padding align-left">
-                <span uk-icon="heart"></span>
+                <span class="token-icon" uk-icon="heart"></span>
                 <span class="token-name">PSH</span>
                 <span class="token-fullname">Mycoin</span>
                 <br />

@@ -33,7 +33,6 @@ export default {
   props: {
     address: { type: String, default: "" },
     name: { type: String, default: "" },
-    tokenName: { type: String, default: "" },
     url: { type: String, default: "" },
     price: { type: Number, default: 0 },
     priceDiff: { type: String, default: "" },
@@ -132,9 +131,8 @@ export default {
             <li>
               <div class="govern-token-card uk-card uk-card-default uk-card-body">
                 <div class="align-left">
-                  <span uk-icon="heart"></span>
-                  <span class="token-name">{{ tokenName }}</span>
-                  <span class="token-fullname">{{ name }}</span>
+                  <span class="token-icon" uk-icon="heart"></span>
+                  <span class="token-name">{{ name }}</span>
                   <br />
                   <span class="token-price" :class="colorClass">{{ price }}</span>
                   <span
@@ -161,7 +159,7 @@ export default {
                 </div>
                 <hr class="margin-y-small" />
                 <div class="align-left">
-                  <span class="govern-token-rate">claimable REPU</span>
+                  <span class="govern-token-rate">claimable {{ name }}</span>
                   <br />
                   <span class="token-price">{{ claimableValue / (10**18) }}</span>
                 </div>

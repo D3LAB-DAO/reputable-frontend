@@ -6,7 +6,7 @@
         <div class="uk-width-1-1 inline-block">
           <div class="uk-card uk-card-default">
             <div class="uk-padding align-left">
-              <span uk-icon="heart"></span>
+              <span class="token-icon" uk-icon="heart"></span>
               <span class="token-name">BTC</span>
               <span class="token-fullname">Bitcoin</span>
               <br />

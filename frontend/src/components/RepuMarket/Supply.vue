@@ -15,7 +15,7 @@
                 />
               </div>
               <div>
-                <span uk-icon="heart"></span>
+                <span class="token-icon" uk-icon="heart"></span>
                 <span class="token-name">BTC</span>
                 <span class="token-fullname">Bitcoin</span>
                 <br />

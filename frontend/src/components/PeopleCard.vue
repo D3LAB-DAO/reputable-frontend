@@ -29,9 +29,6 @@ export default {
       if (this.url !== "") return this.url;
       return new URL(`../profile/` + this.name + `_square.png`, import.meta.url).href;
     },
-    getTokenName() {
-      return this.name.substring(0, 3).toUpperCase();
-    },
     getPriceDiff() {
       var diff = this.priceHistory[this.priceHistory.length - 1] - this.priceHistory[0];
       if (diff > 0) return "▲" + this.getFloatFixed(Math.abs(diff), 2);
@@ -65,16 +62,14 @@ export default {
 </script>
 <template>
   <div>
-    {{ address }}
     <div class="people-card uk-card uk-card-default" :uk-toggle="getTarget" type="button">
       <div v-if="mine" class="uk-card-badge uk-label uk-background-mint">MY</div>
       <div class="uk-card-media-top">
         <img :src="getProfileUrl()" width="1800" height="1200" alt="" />
       </div>
       <div class="uk-padding uk-padding-remove-bottom align-left">
-        <span uk-icon="heart"></span>
-        <span class="token-name">{{ getTokenName() }}</span>
-        <span class="token-fullname">{{ name }}</span>
+        <span class="token-icon" uk-icon="heart"></span>
+        <span class="token-name">{{ name }}</span>
         <br />
         <span class="token-price" :class="colorClass">{{ price }}</span>
         <span class="token-price-diff" :class="colorClass"
@@ -92,7 +87,7 @@ export default {
   </div>
 
   <!-- people-modal -->
-  <PeopleModal :address=address :name=name :tokenName=getTokenName() :url=getProfileUrl() :price=price :priceDiff="getPriceDiff()+'('+getPriceDiffRate()+`)`" :desc=desc :color=this.color />
+  <PeopleModal :address=address :name=name :url=getProfileUrl() :price=price :priceDiff="getPriceDiff()+'('+getPriceDiffRate()+`)`" :desc=desc :color=this.color />
 </template>
 
 <style scoped>

@@ -24,9 +24,6 @@ export default {
         getProfileUrl() {
             return new URL(`../profile/` + this.name + `_square.png`, import.meta.url).href
         },
-        getTokenName() {
-            return this.name.substring(0,3).toUpperCase()
-        },
         getPriceDiff() {
             var diff = this.priceHistory[this.priceHistory.length - 1] - this.priceHistory[0];
             if ( diff > 0 ) return '▲' + this.getFloatFixed(Math.abs(diff), 4);
@@ -66,9 +63,8 @@ export default {
           height="60"
           alt=""
         />
-        <span uk-icon="heart"></span>
-        <span class="token-name">{{ getTokenName() }}</span>
-        <span class="token-fullname">{{ name }}</span>
+        <span class="token-icon" uk-icon="heart"></span>
+        <span class="token-name">{{ name }}</span>
         <br />
         <span class="token-price" :class="colorClass">{{ price }}</span>
         <span class="token-price-diff" :class="colorClass">{{ getPriceDiff() }} ({{ getPriceDiffRate() }})</span>

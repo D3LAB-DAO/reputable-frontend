@@ -132,7 +132,7 @@ export default {
                       <img src="../img/add.png" width="900" height="900" alt="" />
                     </div>
                     <div class="uk-padding uk-padding-remove-bottom align-left">
-                      <span uk-icon="heart"></span>
+                      <span class="token-icon" uk-icon="heart"></span>
                       <span class="token-name">{{ getAccountName() }}</span>
                       <br />
                       <span class="token-price">0</span>

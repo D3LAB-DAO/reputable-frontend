@@ -47,7 +47,7 @@ export default {
               />
               <span class="govern-token-name">Anchor (ANC)</span>
               <span class="uk-badge uk-background-secondary">APR</span>
-              <span class="govern-token-rate">40.32 %</span>
+              <span class="govern-token-rate padding-left-small">40.32 %</span>
             </div>
           </li>
           <li>
@@ -61,10 +61,10 @@ export default {
               />
               <span class="govern-token-name">ANC-UST LP</span>
               <span class="uk-badge uk-background-secondary">APR</span>
-              <span class="govern-token-rate">66.49 %</span>
+              <span class="govern-token-rate padding-left-small">66.49 %</span>
               <br />
               <span class="uk-badge uk-background-secondary">Total Staked</span>
-              <span class="govern-token-rate">22.62M</span>
+              <span class="govern-token-rate padding-left-small">22.62M</span>
             </div>
           </li>
         </ul>

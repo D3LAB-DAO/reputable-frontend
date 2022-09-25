@@ -45,12 +45,12 @@ export default {
       <!-- mint card -->
       <div class="section">
         <div class="uk-width-3xlarge inline-block">
-          <span class="section-text"
+          <!--span class="section-text"
             >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat.</span
-          >
+          -->
           <img class="uk-width-medium uk-padding" :src="url" />
           <form @submit.prevent="contractMint">
             <div>

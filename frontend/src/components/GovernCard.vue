@@ -28,7 +28,7 @@ export default {
       },
       getState() {
         if ( this.state == 0 ) return "In Progress";
-        else return "Done";
+        else return "Executed";
       },
     },
     computed: {

@@ -79,7 +79,7 @@ export default {
       <hr />
       <div class="uk-padding uk-padding-remove-top align-left" style="height: 100px">
         <dl class="uk-description-list">
-          <dt>Description</dt>
+          <dt><span class="bold">Description</span></dt>
           <dd>{{ desc.substring(0, 60) + "..." }}</dd>
         </dl>
       </div>

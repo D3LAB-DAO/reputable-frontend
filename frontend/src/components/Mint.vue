@@ -7,12 +7,12 @@
       <div id="mint-card">
         <div class="uk-width-3xlarge inline-block">
           <div class="uk-card uk-card-default margin-30 padding-bottom">
-            <span class="uk-padding section-text"
+            <!--span class="uk-padding section-text"
               >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
               consequat.</span
-            >
+            -->
             <img class="uk-width-small uk-padding" src="../img/mint.png" />
             <form>
               <div class="uk-margin">
@@ -85,9 +85,9 @@
                 <form>
                   <h4>Description</h4>
                   <div class="uk-margin">
-                    <textarea class="uk-textarea" rows="5" placeholder="Description">
+                    <!--textarea class="uk-textarea" rows="5" placeholder="Description">
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</textarea
-                    >
+                    -->
                   </div>
                 </form>
                 <h4 class="uk-padding-remove-top">Request</h4>

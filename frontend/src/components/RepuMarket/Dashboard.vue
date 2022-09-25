@@ -1,8 +1,10 @@
 <script>
-import Supply from "./Supply.vue";
+import A from "./A.vue";
+import B from "./B.vue";
 export default {
   components: {
-    Supply,
+    A,
+    B,
   },
 };
 </script>
@@ -36,11 +38,8 @@ export default {
     </nav>
     <div class="uk-width-1-1" style="text-align: center;">
       <div id="container" class="uk-width-3xlarge" style="display: inline-block">
-        <Supply />
-        <Supply />
-        <Supply />
-        <Supply />
-        <Supply />
+        <A />
+        <B />
       </div>
     </div>
   </div>

@@ -29,6 +29,7 @@ export default {
       withdrawLoading: false,
       claimLoading: false,
       lastUpdated: "",
+      interval: null,
     };
   },
   props: {
@@ -41,8 +42,14 @@ export default {
     color: { type: Number, default: 0 },
   },
   mounted() {
+    console.log("mounted!", this.interval);
     this.initialConnectAndLoad();
-    setInterval(this.loadInfo, 2000);
+    if (this.interval === null ) { this.interval = setInterval(this.loadInfo, 2000); }
+  },
+  beforeDestroy () {
+    // TODO: 이곳이 호출되지 않고 있어 이벤트 핸들러가 계속 실행되고, mount 돌 때마다 추가되는 현상이..
+    console.log("BEFORE DESTROYED!");
+    clearInterval(this.interval);
   },
   methods: {
     initialConnectAndLoad: async function () {

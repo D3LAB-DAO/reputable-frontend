@@ -27,7 +27,7 @@ export default {
   methods: {
     getProfileUrl() {
       if (this.url !== "") return this.url;
-      return new URL(`../profile/` + this.name + `_square.png`, import.meta.url).href;
+      return new URL("https://raw.githubusercontent.com/REPU-table/reputable-frontend/vuejs/frontend/src/img/add.png").href;
     },
     getPriceDiff() {
       var diff = this.priceHistory[this.priceHistory.length - 1] - this.priceHistory[0];

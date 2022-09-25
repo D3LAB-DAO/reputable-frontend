@@ -42,14 +42,13 @@ export default {
     color: { type: Number, default: 0 },
   },
   mounted() {
-    console.log("mounted!", this.interval);
     this.initialConnectAndLoad();
-    if (this.interval === null ) { this.interval = setInterval(this.loadInfo, 2000); }
+    //if (this.interval === null ) { this.interval = setInterval(this.loadInfo, 2000); }
   },
   beforeDestroy () {
     // TODO: 이곳이 호출되지 않고 있어 이벤트 핸들러가 계속 실행되고, mount 돌 때마다 추가되는 현상이..
-    console.log("BEFORE DESTROYED!");
-    clearInterval(this.interval);
+    //console.log("BEFORE DESTROYED!");
+    //clearInterval(this.interval);
   },
   methods: {
     initialConnectAndLoad: async function () {
@@ -66,7 +65,7 @@ export default {
       return el.classList.contains("uk-open");
     },
     loadInfo: async function () {
-      if (!this.checkOpen()) return;
+      //if (!this.checkOpen()) return;
       let res_totalSupply = await getRTokenTotalSupply(this.rTokenCotract);
       this.totalSupply = res_totalSupply;
       let res_depositedValue = await getDepositedRToken(this.rTokenCotract);
@@ -146,7 +145,8 @@ export default {
         ></div>
         <div v-if="loaded" class="uk-padding-large">
           <h1>{{ name }}
-            <span style="color: gray; font-size: 0.8rem; display: inline-block;"><span uk-icon="clock"></span> Last updated : {{ lastUpdated }}</span>
+            <span @click="loadInfo" style="color: gray; font-size: 0.8rem; display: inline-block; cursor: pointer;" uk-tooltip="Refresh">
+              <span uk-icon="clock"></span> Last updated : {{ lastUpdated }}</span>
           </h1>
           <p>{{ desc }}</p>
 

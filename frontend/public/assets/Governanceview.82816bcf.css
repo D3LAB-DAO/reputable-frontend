@@ -1,0 +1,16 @@
+
+.poll-name[data-v-14c54068] {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.poll-expire[data-v-14c54068] {
+  padding-top: 10px;
+  display: block;
+  font-weight: 200;
+  color: gray;
+  font-size: 0.8rem;
+}
+.done[data-v-14c54068] {
+    -webkit-filter: grayscale(1);
+}

@@ -51,6 +51,7 @@ export default {
             :name="user.name"
             :price="user.price"
             :priceHistory="user.priceHistory"
+            :url="user.url"
           />
         </div>
       </div>

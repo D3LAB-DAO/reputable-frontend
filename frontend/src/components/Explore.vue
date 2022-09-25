@@ -129,7 +129,7 @@ export default {
                   <div class="people-card uk-card uk-card-default" type="button">
                     <div class="uk-card-badge uk-label uk-background-mint">MINT</div>
                     <div class="uk-card-media-top">
-                      <img src="../img/add.png" width="900" height="900" alt="" />
+                      <img src="https://github.com/REPU-table/reputable-frontend/blob/vuejs/frontend/src/img/add.png?raw=true" width="900" height="900" alt="" />
                     </div>
                     <div class="uk-padding uk-padding-remove-bottom align-left">
                       <span class="token-icon" uk-icon="heart"></span>

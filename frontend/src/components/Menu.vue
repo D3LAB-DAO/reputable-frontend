@@ -77,7 +77,7 @@ export default {
     <div>
       <ul class="uk-nav-default" uk-nav="multiple: true">
         <li>
-          <RouterLink to="/trending"
+          <RouterLink to="/"
             ><div class="uk-button uk-button-text">
               <span uk-icon="chevron-right"></span>Trending now
             </div></RouterLink
@@ -133,7 +133,7 @@ export default {
       <button class="uk-offcanvas-close" type="button" uk-close></button>
       <ul class="uk-nav uk-nav-default uk-text-large padding-top">
         <li class="menu-top" uk-toggle="#offcanvas-slide">
-          <RouterLink to="/trending">Trending now</RouterLink>
+          <RouterLink to="/">Trending now</RouterLink>
         </li>
         <li class="menu-people" uk-toggle="#offcanvas-slide">
           <RouterLink to="/explore">Explore</RouterLink>

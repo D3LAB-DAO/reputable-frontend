@@ -55,7 +55,7 @@ $(function () {
             the price becomes personal credit.<br />
             It is useful for designing credit-based apps such as credit loan.
           </h5>
-        <RouterLink to="/trending"><button id="startbtn" class="uk-button uk-button-secondary">
+        <RouterLink to="/"><button id="startbtn" class="uk-button uk-button-secondary">
             WebApp
           </button></RouterLink>
       </div>
@@ -197,7 +197,7 @@ h5 {
   height: 100vh;
 
   opacity: 0.8;
-  background: url(src/img/background.jpg) no-repeat center center fixed;
+  background: url(https://github.com/REPU-table/reputable-frontend/blob/vuejs/frontend/src/img/background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

@@ -44,6 +44,8 @@ function getContract() {
  * Test Contract functions
  */
 
+const DECIMAL_RATE = 10**18;
+
 async function getRTokenContractAddr(addr) {
   if (getContract() === '' || getAccount() === '') return;
   let response = await getRToken_contract(contract, account, addr);
@@ -75,30 +77,30 @@ async function approve(address_rtoken, amount) {
 async function getRTokenTotalSupply(contract_rtoken) {
   if (!contract_rtoken || getAccount() === '') return 0;
   let response = await totalSupply_contract(contract_rtoken, account);
-  return response;
+  return response / DECIMAL_RATE;
 }
 
 async function getDepositedRToken(contract_rtoken) {
   if (!contract_rtoken || getAccount() === '') return 0;
   let response = await userInfo_contract(contract_rtoken, account);
-  return response.amount;
+  return response.amount / DECIMAL_RATE;
 }
 
 async function getClaimableRToken(contract_rtoken) {
   if (!contract_rtoken || getAccount() === '') return 0;
   let response = await pendingToken_contract(contract_rtoken, account);
-  return response;
+  return response / DECIMAL_RATE;
 }
 
 async function depositRToken(contract_rtoken, amount) {
   if (!contract_rtoken || getAccount() === '') return 0;
-  let response = await deposit_contract(contract_rtoken, account, amount);
+  let response = await deposit_contract(contract_rtoken, account, amount * DECIMAL_RATE);
   return response;
 }
 
 async function withdrawRToken(contract_rtoken, amount) {
   if (!contract_rtoken || getAccount() === '') return 0;
-  let response = await withdraw_contract(contract_rtoken, account, amount);
+  let response = await withdraw_contract(contract_rtoken, account, amount * DECIMAL_RATE);
   return response;
 }
 

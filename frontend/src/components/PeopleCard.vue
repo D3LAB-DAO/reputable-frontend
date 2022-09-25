@@ -45,7 +45,7 @@ export default {
       var diff = this.priceHistory[this.priceHistory.length - 1] - this.priceHistory[0];
       if (diff < 0) this.color = 0;
       /* red */ else this.color = 1; /* green */
-    },
+    }
   },
   computed: {
     colorClass() {

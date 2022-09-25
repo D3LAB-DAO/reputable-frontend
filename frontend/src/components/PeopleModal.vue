@@ -28,6 +28,7 @@ export default {
       depositLoading: false,
       withdrawLoading: false,
       claimLoading: false,
+      lastUpdated: "",
     };
   },
   props: {
@@ -41,6 +42,7 @@ export default {
   },
   mounted() {
     this.initialConnectAndLoad();
+    setInterval(this.loadInfo, 2000);
   },
   methods: {
     initialConnectAndLoad: async function () {
@@ -52,16 +54,28 @@ export default {
         });
       });
     },
+    checkOpen: function () {
+      let el = this.$refs.peopleModal;
+      return el.classList.contains("uk-open");
+    },
     loadInfo: async function () {
+      if (!this.checkOpen()) return;
       let res_totalSupply = await getRTokenTotalSupply(this.rTokenCotract);
       this.totalSupply = res_totalSupply;
       let res_depositedValue = await getDepositedRToken(this.rTokenCotract);
       this.depositedValue = res_depositedValue;
       let res_claimableValue = await getClaimableRToken(this.rTokenCotract);
       this.claimableValue = res_claimableValue;
-      let res_allowance = await getAllowance(this.rTokenContractAddr, this.rTokenContractAddr);
+      let res_allowance = await getAllowance(
+        this.rTokenContractAddr,
+        this.rTokenContractAddr
+      );
       this.approved = res_allowance > 0;
       this.loaded = true;
+
+      // update time
+      let today = new Date();
+      this.lastUpdated = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2)  + '-' + ('0' + today.getDate()).slice(-2) + ' ' + ('0' + today.getHours()).slice(-2) + ':' + ('0' + today.getMinutes()).slice(-2)  + ':' + ('0' + today.getSeconds()).slice(-2);
       return true;
     },
     approveRTokenByButton: function (amount) {
@@ -114,7 +128,7 @@ export default {
 
 <template>
   <!-- people-modal -->
-  <div :id="getTag" class="uk-modal-full" uk-modal>
+  <div ref="peopleModal" :id="getTag" class="uk-modal-full" uk-modal>
     <div class="uk-modal-dialog">
       <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
       <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
@@ -124,7 +138,9 @@ export default {
           uk-height-viewport
         ></div>
         <div v-if="loaded" class="uk-padding-large">
-          <h1>{{ name }}</h1>
+          <h1>{{ name }}
+            <span style="color: gray; font-size: 0.8rem; display: inline-block;"><span uk-icon="clock"></span> Last updated : {{ lastUpdated }}</span>
+          </h1>
           <p>{{ desc }}</p>
 
           <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@m" uk-grid>
@@ -161,7 +177,7 @@ export default {
                 <div class="align-left">
                   <span class="govern-token-rate">claimable {{ name }}</span>
                   <br />
-                  <span class="token-price">{{ claimableValue / (10**18) }}</span>
+                  <span class="token-price">{{ claimableValue }}</span>
                 </div>
               </div>
             </li>

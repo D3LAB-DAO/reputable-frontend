@@ -1,20 +1,25 @@
 <script>
 import {
-  connectRTokenContract,
+  getRTokenContract,
   getRTokenTotalSupply,
   getDepositedRToken,
   getClaimableRToken,
   depositRToken,
   withdrawRToken,
   claimRToken,
-  getMyRTokenContractAddr,
+  getRTokenContractAddr,
+  approve,
+  getAllowance,
 } from "../assets/js/interface_request.js";
 import { getDatabase, ref, set } from "firebase/database";
 
 export default {
   data() {
     return {
-      color: 0,
+      rTokenContractAddr: "",
+      rTokenCotract: undefined,
+      loaded: false,
+      approved: false,
       totalSupply: 0,
       depositedValue: 0,
       claimableValue: 0,
@@ -23,80 +28,103 @@ export default {
       depositLoading: false,
       withdrawLoading: false,
       claimLoading: false,
-      loadingDone: false,
     };
   },
   props: {
+    address: { type: String, default: "" },
     name: { type: String, default: "" },
+    tokenName: { type: String, default: "" },
     url: { type: String, default: "" },
     price: { type: Number, default: 0 },
-    priceHistory: { type: Array, default: [] },
+    priceDiff: { type: String, default: "" },
     desc: { type: String, default: "" },
+    color: { type: Number, default: 0 },
+  },
+  mounted() {
+    this.initialConnectAndLoad();
   },
   methods: {
-    getProfileUrl() {
-      if (this.url !== "") return this.url;
-      return new URL(`../profile/` + this.name + `_square.png`, import.meta.url).href;
+    initialConnectAndLoad: async function () {
+      getRTokenContractAddr(this.address).then((addr) => {
+        this.rTokenContractAddr = addr;
+        getRTokenContract(this.rTokenContractAddr).then((res) => {
+          this.rTokenCotract = res;
+          this.loadInfo();
+        });
+      });
     },
-    loadInfo: function () {
-      console.log("this.loadingDone", this.loadingDone);
-      if (this.loadingDone) return;
-      getMyRTokenContractAddr().then((addr) => {
-        connectRTokenContract(addr).then((res2) => {
-          getRTokenTotalSupply().then((res3) => {
-            this.totalSupply = res3;
-            getDepositedRToken().then((res4) => {
-              this.depositedValue = res4;
-              getClaimableRToken().then((res5) => {
-                this.claimableValue = res5;
-                this.loadingDone = true;
-              });
-            });
-          });
+    loadInfo: async function () {
+      let res_totalSupply = await getRTokenTotalSupply(this.rTokenCotract);
+      this.totalSupply = res_totalSupply;
+      let res_depositedValue = await getDepositedRToken(this.rTokenCotract);
+      this.depositedValue = res_depositedValue;
+      let res_claimableValue = await getClaimableRToken(this.rTokenCotract);
+      this.claimableValue = res_claimableValue;
+      let res_allowance = await getAllowance(this.rTokenContractAddr, this.rTokenContractAddr);
+      this.approved = res_allowance > 0;
+      this.loaded = true;
+      return true;
+    },
+    approveRTokenByButton: function (amount) {
+      if (!this.loaded) return;
+      this.depositLoading = true;
+      approve(this.rTokenContractAddr).then((res) => {
+        this.loadInfo().then((res) => {
+          this.depositLoading = false;
         });
       });
     },
     depositRTokenByButton: function (amount) {
+      if (!this.loaded) return;
       this.depositLoading = true;
-      depositRToken(this.depositValue).then((res) => {
-        console.log("depositRToken done! : ", res);
-        this.depositLoading = false;
+      depositRToken(this.rTokenCotract, this.depositValue).then((res) => {
+        this.loadInfo().then((res) => {
+          this.depositLoading = false;
+        });
       });
     },
     withdrawRTokenByButton: function () {
-      /*
+      if (!this.loaded) return;
       this.withdrawLoading = true;
-      withdrawRToken(withdrawValue).then((res) => {
-        console.log("withdrawRToken done! : ", res);
-        this.withdrawLoading = false;
-      });
-      */
-      this.loadInfo().then((res1) => {
-        console.log("loadinginfo done");
+      withdrawRToken(this.rTokenCotract, this.withdrawValue).then((res) => {
+        this.loadInfo().then((res) => {
+          this.withdrawLoading = false;
+        });
       });
     },
     claimRTokenByButton: function () {
+      if (!this.loaded) return;
       this.claimLoading = true;
-      claimRToken().then((res) => {
-        console.log("claimRToken done! : ", res);
-        this.claimLoading = false;
+      claimRToken(this.rTokenCotract).then((res) => {
+        this.loadInfo().then((res) => {
+          this.claimLoading = false;
+        });
       });
+    },
+  },
+  computed: {
+    colorClass() {
+      return "color" + this.color;
+    },
+    getTag() {
+      return "people-modal-" + this.name;
     },
   },
 };
 </script>
 
 <template>
+  <!-- people-modal -->
   <div :id="getTag" class="uk-modal-full" uk-modal>
     <div class="uk-modal-dialog">
       <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
       <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
         <div
           class="uk-background-cover"
-          :style="`background-image: url('` + getProfileUrl() + `')`"
+          :style="`background-image: url('` + url + `')`"
           uk-height-viewport
         ></div>
-        <div class="uk-padding-large">
+        <div v-if="loaded" class="uk-padding-large">
           <h1>{{ name }}</h1>
           <p>{{ desc }}</p>
 
@@ -105,7 +133,7 @@ export default {
               <div class="govern-token-card uk-card uk-card-default uk-card-body">
                 <div class="align-left">
                   <span uk-icon="heart"></span>
-                  <span class="token-name">{{ getTokenName() }}</span>
+                  <span class="token-name">{{ tokenName }}</span>
                   <span class="token-fullname">{{ name }}</span>
                   <br />
                   <span class="token-price" :class="colorClass">{{ price }}</span>
@@ -113,7 +141,7 @@ export default {
                     class="token-price-diff"
                     :class="colorClass"
                     style="font-size: 0.7rem; padding-left: 0px"
-                    >{{ getPriceDiff() }} ({{ getPriceDiffRate() }})</span
+                    >{{ priceDiff }}</span
                   >
                 </div>
                 <hr class="margin-y-small" />
@@ -135,7 +163,7 @@ export default {
                 <div class="align-left">
                   <span class="govern-token-rate">claimable REPU</span>
                   <br />
-                  <span class="token-price">{{ claimableValue }}</span>
+                  <span class="token-price">{{ claimableValue / (10**18) }}</span>
                 </div>
               </div>
             </li>
@@ -147,8 +175,19 @@ export default {
               type="text"
               v-model="depositValue"
               placeholder="Value"
+              :disabled="!approved"
+              :uk-tooltip="!approved ? `title: please approve first!` : ``"
             />
             <button
+              v-if="!approved"
+              @click="approveRTokenByButton"
+              class="uk-button uk-button-danger uk-width-1-3 uk-button-large"
+            >
+              <div v-if="depositLoading" uk-spinner></div>
+              <span v-else>APPROVE</span>
+            </button>
+            <button
+              v-else
               @click="depositRTokenByButton"
               class="uk-button uk-button-danger uk-width-1-3 uk-button-large"
             >
@@ -182,6 +221,9 @@ export default {
               <span v-else>CLAIM</span>
             </button>
           </div>
+        </div>
+        <div v-else class="uk-padding-large uk-text-center">
+          <span uk-spinner="ratio: 4.5"></span>
         </div>
       </div>
     </div>

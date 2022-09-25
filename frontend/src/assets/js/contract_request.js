@@ -1,6 +1,6 @@
-async function getRToken_contract(_contract, _account) {
+async function getRToken_contract(_contract, _account, _address) {
     console.log("-- [request] getRToken");
-    let response = await _contract.methods.getRToken(_account).call({ from: _account });
+    let response = await _contract.methods.getRToken(_address).call({ from: _account });
     console.log("-- [response] getRToken :", response);
     return response;
 }
@@ -16,6 +16,13 @@ async function approve_contract(_contract, _account, _RTokenAddress, _amount) {
     console.log("-- [request] approve");
     let response = await _contract.methods.approve(_RTokenAddress, _amount).send({ from: _account });
     console.log("-- [response] approve :", response);
+    return response;
+}
+
+async function allowance_contract(_contract, _account, _RTokenAddress) {
+    console.log("-- [request] allowance");
+    let response = await _contract.methods.allowance(_account, _RTokenAddress).call({ from: _account });
+    console.log("-- [response] allowance :", response);
     return response;
 }
 
@@ -61,4 +68,4 @@ async function harvest_contract(_contract, _account) {
     console.log("-- [response] harvest :", response);
     return response;
 }
-export { getRToken_contract, createRToken_contract, approve_contract, totalSupply_contract, userInfo_contract, pendingToken_contract, deposit_contract, withdraw_contract, harvest_contract }
+export { getRToken_contract, createRToken_contract, approve_contract, allowance_contract, totalSupply_contract, userInfo_contract, pendingToken_contract, deposit_contract, withdraw_contract, harvest_contract }

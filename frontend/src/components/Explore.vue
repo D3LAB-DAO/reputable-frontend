@@ -22,6 +22,7 @@ export default {
     return {
       users: {},
       myTokenInfo: {},
+      myAccountAddress: "",
       loading: false,
       lastId: "",
       seeMore: true,
@@ -42,6 +43,7 @@ export default {
         if (users_mine) {
           this.mine = true;
           this.myTokenInfo = users_mine;
+          this.myAccountAddress = getAccount();
         }
 
         const refs = query(
@@ -86,7 +88,7 @@ export default {
         if (count < this.numOfElemInRow) this.seeMore = false;
       });
     },
-    getAccount: function () {
+    getAccountName: function () {
       let account = getAccount();
       return account.substr(0, 8) + '....' + account.substr(account.length - 8, 8);
     }
@@ -131,7 +133,7 @@ export default {
                     </div>
                     <div class="uk-padding uk-padding-remove-bottom align-left">
                       <span uk-icon="heart"></span>
-                      <span class="token-name">{{ getAccount() }}</span>
+                      <span class="token-name">{{ getAccountName() }}</span>
                       <br />
                       <span class="token-price">0</span>
                       <span class="token-price-diff">-</span>
@@ -152,6 +154,7 @@ export default {
             </div>
             <div v-else>
               <PeopleCard
+                :address="myAccountAddress"
                 :name="myTokenInfo.name"
                 :price="myTokenInfo.price"
                 :priceHistory="myTokenInfo.priceHistory"
@@ -160,8 +163,9 @@ export default {
                 :mine=true
               />
             </div>
-            <div v-for="user in users">
+            <div v-for="(user, key) in users">
               <PeopleCard
+                :address=key
                 :name="user.name"
                 :price="user.price"
                 :priceHistory="user.priceHistory"

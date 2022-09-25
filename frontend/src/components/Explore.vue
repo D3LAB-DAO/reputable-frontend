@@ -1,5 +1,5 @@
 <script>
-import { getAccount, store, retrieve } from "../assets/js/interface_request.js";
+import { getAccount } from "../assets/js/interface_request.js";
 import PeopleCard from "./PeopleCard.vue";
 import MintModal from "./MintModal.vue";
 import {
@@ -52,9 +52,9 @@ export default {
           let count = 0;
           const users = snapshot.val();
           for (var id in users) {
+            this.lastId = id;
             if (id === getAccount()) continue;
             this.users.push(users[id]);
-            this.lastId = id;
             count++;
           }
           this.loading = true;
@@ -76,14 +76,20 @@ export default {
         let count = 0;
         const users = snapshot.val();
         for (var id in users) {
-          this.users.push(users[id]);
           this.lastId = id;
+          if (id === getAccount()) continue;
+          this.users.push(users[id]);
           count++;
         }
 
         if (count < this.numOfElemInRow) this.seeMore = false;
       });
     },
+    getAccount: function () {
+      let account = getAccount();
+      return account.substr(0, 8) + '....' + account.substr(account.length - 8, 8);
+    }
+    /*
     contractStore: function (num) {
       store(num).then((res) => {
         console.log("store done! : ", res);
@@ -96,14 +102,12 @@ export default {
         return res;
       });
     },
+    */
   },
 };
 </script>
 
 <template>
-  <button @click="contractStore(5)">store</button>
-  <button @click="contractRetrieve">retrieve</button>
-  <span>{{ testvalue }}</span>
   <div id="page-people">
     <div class="section">
       <h3 class="title-font section-title">&emsp;Explore&emsp;</h3>
@@ -140,7 +144,7 @@ export default {
                     </div>
                     <div class="uk-padding uk-padding-remove-bottom align-left">
                       <span uk-icon="heart"></span>
-                      <span class="token-name">0x1ab1239f3458916</span>
+                      <span class="token-name">{{ getAccount() }}</span>
                       <br />
                       <span class="token-price">0</span>
                       <span class="token-price-diff">-</span>
@@ -159,7 +163,7 @@ export default {
                 </a>
               </div>
             </div>
-            <div v-for="(user, idx) in users" :key="{ idx }">
+            <div v-for="user in users">
               <PeopleCard
                 :name="user.name"
                 :price="user.price"

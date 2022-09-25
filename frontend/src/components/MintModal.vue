@@ -1,31 +1,42 @@
 <script>
-import { getAccount, store, retrieve } from "../assets/js/interface_request.js";
+import { getAccount, createRToken } from "../assets/js/interface_request.js";
 import { getDatabase, ref, set } from "firebase/database";
 
 export default {
   data() {
     return {
-      name: '',
-      url:'',
-      desc:'',
-    }
+      name: "",
+      url: "",
+      desc: "",
+      loading: false,
+    };
   },
   methods: {
-    writeToFirebase: function () {
-      console.log("Write To Firebase! : ", this.name, this.url, this.desc);
-      const db = getDatabase();
-      set(ref(db, "users/" + getAccount()), {
-        name: this.name,
-        url: this.url,
-        desc: this.desc,
+    contractMint: function (symbol) {
+      this.loading = true;
+      createRToken(symbol).then((receipt) => {
+        let createRTokenContractAddr = receipt.events.RTokenCreate.returnValues[1];
+        console.log("created RToken Address=", createRTokenContractAddr);
+
+        // Wirte To Firebase
+        console.log("Write To Firebase! : ", this.name, this.url, this.desc);
+        const db = getDatabase();
+        set(ref(db, "users/" + getAccount()), {
+          name: this.name,
+          url: this.url,
+          desc: this.desc,
+        });
+
+        // Close Modal
+        this.$refs.modalref.remove();
       });
-    },
+    }
   },
 };
 </script>
 
 <template>
-  <div id="modal-center" class="uk-flex-top" uk-modal>
+  <div ref="modalref" id="modal-center" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
       <button class="uk-modal-close-default" type="button" uk-close></button>
 
@@ -41,7 +52,7 @@ export default {
             consequat.</span
           >
           <img class="uk-width-medium uk-padding" :src="url" />
-          <form @submit.prevent="writeToFirebase">
+          <form @submit.prevent="contractMint">
             <div>
               <input
                 class="uk-input uk-form-success uk-form-width-large uk-form-large"
@@ -65,7 +76,10 @@ export default {
                 v-model="name"
                 placeholder="✏️ Name*"
               />
-              <button class="uk-button uk-button-success uk-button-large">MINT!</button>
+              <button class="uk-button uk-button-success uk-button-large">
+                <div v-if="loading" uk-spinner></div>
+                <span v-else>MINT!</span>
+              </button>
             </div>
           </form>
         </div>

@@ -83,7 +83,7 @@ async function getRTokenTotalSupply(contract_rtoken) {
 async function getDepositedRToken(contract_rtoken) {
   if (!contract_rtoken || getAccount() === '') return 0;
   let response = await userInfo_contract(contract_rtoken, account);
-  return response.amount / DECIMAL_RATE;
+  return response.amount;
 }
 
 async function getClaimableRToken(contract_rtoken) {
@@ -94,13 +94,13 @@ async function getClaimableRToken(contract_rtoken) {
 
 async function depositRToken(contract_rtoken, amount) {
   if (!contract_rtoken || getAccount() === '') return 0;
-  let response = await deposit_contract(contract_rtoken, account, amount * DECIMAL_RATE);
+  let response = await deposit_contract(contract_rtoken, account, amount);
   return response;
 }
 
 async function withdrawRToken(contract_rtoken, amount) {
   if (!contract_rtoken || getAccount() === '') return 0;
-  let response = await withdraw_contract(contract_rtoken, account, amount * DECIMAL_RATE);
+  let response = await withdraw_contract(contract_rtoken, account, amount);
   return response;
 }
 

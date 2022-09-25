@@ -48,6 +48,13 @@ $(function () {
       <div class="full"><h1 class="cursive-font">&emsp;Reputable&emsp;</h1></div>
       <div class="full">
         <h1 class="cursive-font-bg">&emsp;Reputable &emsp;</h1>
+         <h5 class="quicksand-font-300" style="margin-top:100px;">
+            <span class="quicksand-font-700">Reputable</span> makes it easy for users to
+            create their own tokens.<br />
+            Since all tokens have a same total supply and inflation rate,<br />
+            the price becomes personal credit.<br />
+            It is useful for designing credit-based apps such as credit loan.
+          </h5>
         <RouterLink to="/trending"><button id="startbtn" class="uk-button uk-button-secondary">
             WebApp
           </button></RouterLink>
